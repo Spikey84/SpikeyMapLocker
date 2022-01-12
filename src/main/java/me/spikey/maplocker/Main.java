@@ -20,6 +20,8 @@ public class Main extends JavaPlugin implements Listener {
 
         getCommand("lock").setExecutor(new LockCommand());
         getCommand("unlock").setExecutor(new UnLockCommand());
+
+        Metrics metrics = new Metrics(this, 13934);
     }
 
     public boolean mapIsLocked(ItemStack itemStack, String name) {
