@@ -32,10 +32,16 @@ public class LockCommand implements CommandExecutor {
 
         ItemMeta iM = map.getItemMeta();
 
-        if (iM.getLore() != null && iM.getLore().contains(ChatColor.RED + "Locked")) {
-            player.sendMessage("This map is already locked!");
-            return true;
+        if (iM.getLore() != null) {
+            for (String str : iM.getLore()) {
+                if (str.contains(ChatColor.RED + "Locked by")) {
+                    player.sendMessage("This map is already locked.");
+                    return true;
+                }
+            }
         }
+
+
 
         iM.setLore(Arrays.asList(ChatColor.RED + "Locked by %s.".formatted(player.getName())));
 
