@@ -44,6 +44,16 @@ public class UnLockCommand implements CommandExecutor {
                 }
             }
             player.sendMessage("This map is locked by another player.");
+            if (player.hasPermission("maplocker.bypass")) {
+                for (int x = 0; x < iM.getLore().size(); x++) {
+                    if (iM.getLore().get(x).contains("Locked by")) {
+                        iM.setLore(Lists.newArrayList());
+                        map.setItemMeta(iM);
+                        player.sendMessage("This map has been unlocked.");
+                        return true;
+                    }
+                }
+            }
             return true;
         }
 
