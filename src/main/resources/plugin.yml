@@ -1,0 +1,11 @@
+main: me.spikey.maplocker.Main
+
+name: MapLocker
+version: 1.0
+author: SpikeyNoob
+
+api-version: 1.13
+
+commands:
+  lock:
+  unlock:
